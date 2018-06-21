@@ -57,7 +57,7 @@ const AppTabNavigator=createMaterialTopTabNavigator(
     }}
     },{
        tabBarPosition:'bottom', 
-       animationEnabled:'true', 
+       animationEnabled:true, 
        tabBarOptions:{
             activeTintColor:"#000",
             inactiveTintColor:"#d1cece",
