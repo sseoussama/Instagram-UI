@@ -10,8 +10,8 @@ class CardComponent extends Component {
             "1" : require("../assets/IMG_20180331_135215_406.jpg"),
             "2" : require("../assets/_IGP0687.jpg"),
             "3" : require("../assets/image-0-02-04-ea5a6213af89ce9c3d6874fff9bcc0514be488a10bf7f7409878dad45efff39d-V.jpg"),
-            "4" : require("../assets/IMG_2701.jpg")
-            
+            "4" : require("../assets/IMG_2701.jpg"),
+                
         }
         return (
           <Card>
@@ -27,7 +27,7 @@ class CardComponent extends Component {
               </CardItem>
               <CardItem cardBody>
                 <Image  source={images[this.props.imageSource]} style={
-                   { flex:1,height:400,width:null}
+                   {flex:1,height:400,width:null}
                 } /> 
               </CardItem>
               <CardItem style={{height:50}}>

@@ -11,7 +11,10 @@ export default class App extends React.Component {
 }
 const AppStackNavigator=createStackNavigator(
   {
-    home : MainScreen,
+    home : MainScreen
+  },
+  {
+    headerMode:'none'
   }
 )
 const styles = StyleSheet.create({

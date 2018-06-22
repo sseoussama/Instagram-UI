@@ -2,14 +2,49 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet ,ScrollView} from 'react-native';
 import CardComponent from '../CardComponent';
-import {Container,Content,Thumbnail ,Icon} from 'native-base';
+import {Container,Content,Thumbnail ,Icon,Header,Left,Right,Body,Button,Title} from 'native-base';
+import { Font, AppLoading } from "expo";
 // create a component
 class HomeTab extends Component {
-    
+  constructor(props) {
+    super(props);
+    this.state = { loading: true };
+  }
+  async componentWillMount() {
+    await Font.loadAsync({
+      Roboto: require("native-base/Fonts/Roboto.ttf"),
+      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf")
+    });
+    this.setState({ loading: false });
+  }
+
     render() {
+      if (this.state.loading) {
+        return (
+          <Container>
+            <AppLoading />
+          </Container>
+        );
+      }
         return (
             <Container style={styles.container}>
-                <View style={{height:90 }}>
+             
+               <Header>
+                 <Left>
+                   <Button transparent>
+                     <Icon name='md-camera' />
+                   </Button>
+                 </Left>
+                 <Body>
+                   <Title>Instagram</Title>
+                 </Body>
+                 <Right>
+                   <Button transparent>
+                     <Icon name='md-send' />
+                   </Button>
+                 </Right>
+               </Header>       
+                <View style={{height:90}}>
                       <View style={{flex:1,flexDirection:'row' , justifyContent:'space-between',alignItems:'center',paddingHorizontal:7}}>
                       <Text style={{fontWeight:'bold'}}> Stories </Text>
                       <View style={{flex:1, flexDirection:'row', justifyContent:'flex-end'}}>

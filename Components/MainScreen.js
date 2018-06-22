@@ -11,11 +11,7 @@ import SearchTab  from './AppTabNavigator/SearchTab';
 
 // create a component
 class MainScreen extends Component {
-    static navigationOptions = {
-        headerLeft:<Icon name='md-camera' style={{paddingLeft:10}}/> ,
-        title :"Instagram" ,
-        headerRight: <Icon name='md-send' style={{paddingRight:10}}/>,
-    }
+   
     render() {
         return (
             <AppTabNavigator/>
