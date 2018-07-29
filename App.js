@@ -1,27 +1,52 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import {createStackNavigator} from 'react-navigation'; 
-import MainScreen from './Components/MainScreen';
+
+import CustomDrawerContentComponent from './Components/Views/Components/CustomDrawerContentComponent'
+import { createStackNavigator, createSwitchNavigator,createDrawerNavigator} from 'react-navigation';
+import SignInScreen from './Components/Views/SignInScreen';
+import HomeScreen from './Components/Views/HomeScreen';
+import SettingsScreen from './Components/Views/SettingsScreen';
+import SignUpScreen from './Components/Views/SignUpScreen';
+import AuthLoadingScreen from './Components/Views/AuthLoadingScreen';
+
+import {Provider} from 'react-redux';
+import {createStore,applyMiddleware} from 'redux';
+import reducers from './reducers';
+import reduxThunk from 'redux-thunk';
+const store=createStore(reducers,{},applyMiddleware(reduxThunk)); 
 export default class App extends React.Component {
   render() {
     return (
-     <AppStackNavigator/>
+      <Provider store={store}>
+      <MyApp/>
+      </Provider>
+    
     );
   }
 }
-const AppStackNavigator=createStackNavigator(
-  {
-    home : MainScreen
+
+const AuthStack = createStackNavigator({ SignIn: SignInScreen,SignUp:SignUpScreen });
+const AppDrawer = createDrawerNavigator({
+   
+  Home: {
+    screen: HomeScreen,
   },
-  {
-    headerMode:'none'
+  Settings: {
+    screen: SettingsScreen
   }
-)
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+},
+  {
+    initialRouteName: 'Home',
+    drawerPosition: 'left',
+    contentComponent: CustomDrawerContentComponent,
+  
+  });
+const MyApp= createSwitchNavigator(
+  {
+    AuthLoading: AuthLoadingScreen,
+    App: AppDrawer,
+    Auth: AuthStack,
   },
-});
+  {
+    initialRouteName: 'AuthLoading',
+  }
+);

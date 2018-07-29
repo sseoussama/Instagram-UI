@@ -1,14 +1,15 @@
 {
   "expo": {
-    "name": "instagram-ui",
+    "name": "tshghel",
     "description": "This project is really great.",
-    "slug": "instagram-ui",
+    "slug": "tshghel",
     "privacy": "public",
     "sdkVersion": "28.0.0",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+   
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -22,6 +23,22 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.mosta9il.teshghel",
+    "config": {
+     "googleMaps": {
+     "apiKey": "AIzaSyBnODZQe6gO3wxWZtuxhZGlSyyPXIHfv5g"
+     
+     },
+     "googleSignIn":{
+       "apiKey":"AIzaSyBnODZQe6gO3wxWZtuxhZGlSyyPXIHfv5g",
+       "certificateHash":"4EF3D50EF8D4F3A40A0AA66D52BA5F10816ED675"
+      }
+  
+    }
+        
+      
     }
   }
 }
